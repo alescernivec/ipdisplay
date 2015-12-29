@@ -4,6 +4,16 @@ Displays countries/cities from my current connections.
 
 ## Dependencies
 
+Packages:
+ * Python-dev
+
+If you do not have Python-dev package:
+```
+$ sudo apt-get install python-dev
+```
+
+Python dependencies (virtual environment):
+
 ```
 argparse==1.2.1
 ipaddress==1.0.16
@@ -34,6 +44,8 @@ From command line:
 python ipdisplay.py
 ```
 
+This will take you some moments since lookup is done using the local database.
+
 Output:
 
 ```
@@ -50,6 +62,8 @@ tcp   172.16.93.140:36656            148.251.181.44:7615            ESTABLISHED 
 tcp   172.16.93.140:45030            91.217.255.47:443              ESTABLISHED   31433  storagesync          Slovenia             Europe              
 ...
 ```
+
+If you do not see all the processes (program names), you can run the command as root.
 
 ## Directory structure
 
@@ -85,11 +99,22 @@ country-blocks-en.csv -> GeoLite2-Country-CSV_20151201/GeoLite2-Country-Blocks-I
 country-locations-en.csv -> GeoLite2-Country-CSV_20151201/GeoLite2-Country-Locations-en.csv
 ```
 
-### GeoLite2
+### GeoLite2 Database
 
 You can grab the latest GeoLite2 database from here: 
 
-[ http://dev.maxmind.com/geoip/geoip2/geolite2/ ]
+[ http://dev.maxmind.com/geoip/geoip2/geolite2/ ]:
+
+```
+$ cd database
+$ wget http://geolite.maxmind.com/download/geoip/database/GeoLite2-City-CSV.zip
+$ wget http://geolite.maxmind.com/download/geoip/database/GeoLite2-Country-CSV.zip
+$ unzip GeoLite2-City-CSV.zip
+$ unzip GeoLite2-Country-CSV.zip
+$ cp -s GeoLite2-City-CSV_20151201/GeoLite2-City-Locations-en.csv city-locations-en.csv
+$ cp -s GeoLite2-Country-CSV_20151201/GeoLite2-Country-Blocks-IPv4.csv country-blocks-en.csv
+$ cp -s GeoLite2-Country-CSV_20151201/GeoLite2-Country-Locations-en.csv country-locations-en.csv
+```
 
 Note, comercially you can use **GeoLite2** database for one year for free
 
