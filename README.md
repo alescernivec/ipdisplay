@@ -11,6 +11,19 @@ psutil==3.3.0
 wsgiref==0.1.2
 ```
 
+You can create virtualenv in order to run the program:
+
+```
+virtualenv --no-site-packages virtualenv/
+```
+
+and install dependencies 
+
+```
+$ . virtualenv/bin/activate
+$ pip install -r dependecies.txt
+```
+
 Depends on **GeoLite2** database. See bellow.
 
 ## Usage
